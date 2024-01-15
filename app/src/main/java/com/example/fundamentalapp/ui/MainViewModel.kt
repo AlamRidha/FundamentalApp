@@ -22,7 +22,7 @@ class MainViewModel : ViewModel() {
         dataUser("A")
     }
 
-    private fun dataUser(query: String) {
+    fun dataUser(query: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().searchUser(query)
         client.enqueue(object : Callback<UserResponse> {

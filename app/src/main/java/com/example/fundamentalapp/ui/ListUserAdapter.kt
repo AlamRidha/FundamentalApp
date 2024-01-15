@@ -1,5 +1,6 @@
 package com.example.fundamentalapp.ui
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fundamentalapp.databinding.ItemRowUserBinding
 import com.example.fundamentalapp.response.ItemsItem
+import com.example.fundamentalapp.ui.DetailActivity.Companion.DETAIL_USER
 
 class ListUserAdapter : ListAdapter<ItemsItem, ListUserAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -31,6 +33,13 @@ class ListUserAdapter : ListAdapter<ItemsItem, ListUserAdapter.MyViewHolder>(DIF
             Log.d(TAG, "Data Found $userName")
             binding.tvItemName.text = userName.login
             Glide.with(itemView.context).load(userName.avatarUrl).into(binding.imgItemPhoto)
+
+            //  make click in item recycle view
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailActivity::class.java)
+                intent.putExtra(DETAIL_USER, userName.login)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 
