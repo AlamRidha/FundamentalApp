@@ -33,8 +33,6 @@ class DetailActivity : AppCompatActivity() {
             binding.tvFollowing.text = userData.following.toString()
             Glide.with(this@DetailActivity).load(userData.avatarUrl).into(binding.ivDetailimg)
             Log.d(TAG, "Data name is ${userData.login}")
-
-
         }
 
         //  call loading from detailviewmodel

@@ -33,7 +33,7 @@ class MainViewModel : ViewModel() {
                         _dataUser.value = response.body()?.items
                     }
                 } else {
-                    Log.d(TAG, "onFailure ${response.message()}")
+                    Log.d(TAG, "onFailure ${response.message()} tidak sukses")
                 }
             }
 
